@@ -11,6 +11,6 @@ RUN apk add --no-cache \
     curl \
     jq
 
-COPY test-action.sh /usr/bin/test-action
+COPY test-action.sh /usr/local/bin/test-action
 
-ENTRYPOINT ["test-action"]
+CMD ["test-action"]
