@@ -13,6 +13,6 @@ RUN apk add --no-cache \
 
 WORKDIR /action
 
-COPY test-action.sh ./test-action
+COPY ./test-action.sh ./test-action
 RUN ["chmod", "+x", "./test-action"]
 CMD ["./test-action"]
