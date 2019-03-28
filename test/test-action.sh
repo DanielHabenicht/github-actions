@@ -26,11 +26,11 @@ main(){
 	action=$(jq --raw-output .action "$GITHUB_EVENT_PATH")
 	merged=$(jq --raw-output .pull_request.merged "$GITHUB_EVENT_PATH")
 
-	echo "running $GITHUB_ACTION for PR #${NUMBER}"
+	echo "running $GITHUB_ACTION for PR #$NUMBER"
 
 	echo $action
 
-	if [[ "$action" == "opened" ]]; then
+	if [ "$action" == "opened" ]  || [ "$action" == "reopened" ] ; then
 		# execute action
 		ref=$(jq --raw-output .pull_request.head.ref "$GITHUB_EVENT_PATH")
 		owner=$(jq --raw-output .pull_request.head.repo.owner.login "$GITHUB_EVENT_PATH")
