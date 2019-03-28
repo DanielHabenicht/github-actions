@@ -26,6 +26,9 @@ main(){
 	action=$(jq --raw-output .action "$GITHUB_EVENT_PATH")
 	merged=$(jq --raw-output .pull_request.merged "$GITHUB_EVENT_PATH")
 
+	echo "running $GITHUB_ACTION for PR #${NUMBER}"
+
+	echo $action
 
 	if [[ "$action" == "opened" ]]; then
 		# execute action
@@ -42,7 +45,6 @@ main(){
 		echo "sent message!"
 		exit 0
 	fi
-	exit $NO_BRANCH_DELETED_EXIT_CODE
 }
 
 main "$@"
