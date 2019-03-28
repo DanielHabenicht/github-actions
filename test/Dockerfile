@@ -13,4 +13,4 @@ RUN apk add --no-cache \
 
 COPY ./test-action.sh ./test-action.sh
 RUN ["chmod", "+x", "./test-action.sh"]
-CMD ["./test-action.sh"]
+ENTRYPOINT ["./test-action.sh"]
