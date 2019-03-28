@@ -11,8 +11,6 @@ RUN apk add --no-cache \
     curl \
     jq
 
-WORKDIR /action
-
-COPY ./test-action.sh ./test-action
-RUN ["chmod", "+x", "./test-action"]
-CMD ["./test-action"]
+COPY ./test-action.sh ./test-action.sh
+RUN ["chmod", "+x", "./test-action.sh"]
+CMD ["./test-action.sh"]
